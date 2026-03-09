@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Uemachi Plateau — A Deep Time Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --parchment: #f5f0e8;
+    --aged: #e8dfc8;
+    --rust: #8B3A2A;
+    --gold: #C4962A;
+    --moss: #3d6b47;
+    --slate: #3A4A5C;
+    --korea-blue: #2a5c8b;
+    --china-red: #8b2a2a;
+    --japan-rust: #8B3A2A;
+    --faded: #7a6e5f;
+    --line: #c8b89a;
+    --tang-gold: #b8860b;
+    --song-blue: #4a7a9b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 60px 40px 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .header p {
+    font-style: italic;
+    color: var(--faded);
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .header::after {
+    content: '';
+    display: block;
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto;
+  }
+
+  /* COLUMN KEY */
+  .column-key {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px 40px 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .key-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .key-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .key-china { background: var(--china-red); }
+  .key-korea { background: var(--korea-blue); }
+  .key-japan { background: var(--japan-rust); }
+  .key-influence { background: var(--gold); }
+
+  /* ERA NAV */
+  .era-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 16px 40px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .era-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    padding: 5px 12px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--faded);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+
+  .era-btn:hover, .era-btn.active {
+    background: var(--ink);
+    color: var(--parchment);
+    border-color: var(--ink);
+  }
+
+  /* MAIN LAYOUT */
+  .timeline-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* THREE COLUMN LAYOUT */
+  .tri-row {
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr 2px 1fr;
+    gap: 0;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .col-china { grid-column: 1; }
+  .col-spine-left { grid-column: 2; background: var(--line); min-height: 20px; }
+  .col-japan { grid-column: 3; }
+  .col-spine-right { grid-column: 4; background: var(--line); min-height: 20px; }
+  .col-korea { grid-column: 5; }
+
+  /* ERA HEADERS */
+  .era-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    margin: 40px 0 20px;
+    gap: 0;
+  }
+
+  .era-header-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .era-header span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    background: var(--ink);
+    padding: 5px 16px;
+    white-space: nowrap;
+  }
+
+  /* COLUMN HEADERS */
+  .col-headers {
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr 2px 1fr;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background: var(--parchment);
+    z-index: 10;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .col-header {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px;
+  }
+
+  .col-header.china { color: var(--china-red); }
+  .col-header.japan { color: var(--japan-rust); }
+  .col-header.korea { color: var(--korea-blue); }
+  .col-header.spine { background: var(--line); }
+
+  /* EVENT CARDS */
+  .event-card {
+    padding: 14px 16px;
+    margin: 6px 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease, border 0.2s ease;
+  }
+
+  .event-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .event-card:hover {
+    background: rgba(200,184,154,0.2);
+  }
+
+  .event-card.china-card {
+    border-left-color: var(--china-red);
+    text-align: right;
+    margin-right: 4px;
+  }
+
+  .event-card.china-card:hover { background: rgba(139,42,42,0.06); }
+
+  .event-card.korea-card {
+    border-right: 3px solid var(--korea-blue);
+    border-left: none;
+    margin-left: 4px;
+  }
+
+  .event-card.korea-card:hover { background: rgba(42,92,139,0.06); }
+
+  .event-card.japan-card {
+    border-left-color: var(--japan-rust);
+    border-right: 3px solid var(--japan-rust);
+    text-align: center;
+    margin: 6px 4px;
+    background: rgba(139,58,42,0.03);
+  }
+
+  .event-card.japan-card:hover { background: rgba(139,58,42,0.08); }
+
+  .event-card.influence-card {
+    background: rgba(196,150,42,0.08);
+    border-left-color: var(--gold);
+    border-right: 3px solid var(--gold);
+    margin: 6px 4px;
+  }
+
+  .card-date {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .china-card .card-date { color: var(--china-red); }
+  .japan-card .card-date { color: var(--japan-rust); }
+  .korea-card .card-date { color: var(--korea-blue); }
+  .influence-card .card-date { color: var(--gold); }
+
+  .card-dynasty {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .card-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+
+  .card-body {
+    font-size: 0.8rem;
+    color: var(--faded);
+    line-height: 1.65;
+    font-style: italic;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .event-card.expanded .card-body {
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .card-expand {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    color: var(--line);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .event-card.expanded .card-expand { display: none; }
+
+  /* INFLUENCE ARROWS */
+  .influence-row {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    gap: 10px;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.82rem;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    color: var(--gold);
+  }
+
+  .influence-label {
+    background: rgba(196,150,42,0.1);
+    border: 1px solid rgba(196,150,42,0.3);
+    padding: 4px 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* TOUR NOTE */
+  .tour-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    color: var(--parchment);
+    background: var(--rust);
+    padding: 1px 6px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+
+  /* CONNECTOR NOTE */
+  .connector {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 10px 60px;
+    font-style: italic;
+    color: var(--faded);
+    font-size: 0.82rem;
+    border-top: 1px dashed var(--line);
+    border-bottom: 1px dashed var(--line);
+    background: rgba(200,184,154,0.12);
+    margin: 10px 0;
+  }
+
+  /* EMPTY CELL */
+  .empty { padding: 8px; }
+
+  /* SPINE CONNECTOR */
+  .spine-segment { background: var(--line); }
+
+  /* DYNASTY BAR */
+  .dynasty-bar {
+    position: sticky;
+    top: 44px;
+    z-index: 9;
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr 2px 1fr;
+    margin-bottom: 0;
+  }
+
+  .dynasty-label {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-bottom: 2px solid currentColor;
+  }
+
+  .dynasty-china { color: var(--china-red); background: rgba(139,42,42,0.06); }
+  .dynasty-japan { color: var(--japan-rust); background: rgba(139,58,42,0.06); }
+  .dynasty-korea { color: var(--korea-blue); background: rgba(42,92,139,0.06); }
+  .dynasty-spine { background: var(--line); }
+
+  .era-group { transition: opacity 0.3s ease; }
+  .era-group.hidden { display: none; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    font-style: italic;
+    color: var(--faded);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .tri-row, .col-headers, .dynasty-bar {
+      grid-template-columns: 1fr;
+    }
+    .col-china { grid-column: 1; }
+    .col-spine-left, .col-spine-right { display: none; }
+    .col-japan { grid-column: 1; }
+    .col-korea { grid-column: 1; }
+    .era-header { grid-column: 1; }
+    .event-card.china-card { text-align: left; border-left: 3px solid var(--china-red); }
+    .influence-row { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-subtitle">Edward's Osaka Castle Walks — Continental Cross-Reference Edition</div>
+  <h1>The Uemachi Plateau<br><em style="font-weight:300;font-size:0.78em">A Deep Time Timeline</em></h1>
+  <p>Japan, China & Korea — seven thousand years of the same ridge, the same question</p>
+</div>
+
+<div class="column-key">
+  <div class="key-item"><div class="key-dot key-china"></div> China</div>
+  <div class="key-item"><div class="key-dot key-japan"></div> Japan / Plateau</div>
+  <div class="key-item"><div class="key-dot key-korea"></div> Korea</div>
+  <div class="key-item"><div class="key-dot key-influence"></div> Continental Influence Event</div>
+</div>
+
+<div class="era-nav">
+  <button class="era-btn active" onclick="filterEra('all', event)">All</button>
+  <button class="era-btn" onclick="filterEra('prehistoric', event)">Prehistoric</button>
+  <button class="era-btn" onclick="filterEra('ancient', event)">Ancient</button>
+  <button class="era-btn" onclick="filterEra('heian', event)">Heian</button>
+  <button class="era-btn" onclick="filterEra('medieval', event)">Medieval</button>
+  <button class="era-btn" onclick="filterEra('sengoku', event)">Sengoku</button>
+  <button class="era-btn" onclick="filterEra('edo', event)">Edo & Beyond</button>
+</div>
+
+<div class="timeline-wrapper">
+
+  <!-- STICKY COLUMN HEADERS -->
+  <div class="col-headers">
+    <div class="col-header china">China</div>
+    <div class="col-header spine"></div>
+    <div class="col-header japan">Japan — Uemachi Plateau</div>
+    <div class="col-header spine"></div>
+    <div class="col-header korea">Korea</div>
+  </div>
+
+  <!-- ==================== PREHISTORIC ==================== -->
+  <div class="era-group" data-era="prehistoric">
+
+    <div class="tri-row">
+      <div class="era-header" style="grid-column:1/-1"><div class="era-header-line"></div><span>Prehistoric — Before Writing</span><div class="era-header-line"></div></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">c. 5000–2000 BCE</span>
+          <span class="card-dynasty">Neolithic China</span>
+          <div class="card-title">Yangshao & Longshan Pottery Cultures</div>
+          <div class="card-body">Sophisticated painted pottery cultures along the Yellow River. The ceramic traditions that will eventually reach Japan via Korea begin here. The Dawenkou black pottery tradition is the earliest ancestor of the ceramics that will end up in Osaka's Museum of Oriental Ceramics four thousand years later.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">c. 5000 BCE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">Jomon Settlement — The Plateau Chosen</div>
+          <div class="card-body">First settlement on the Uemachi ridge — dry ground above the floodplain, between two river systems draining to Osaka Bay. The same geographical logic that will drive every subsequent civilisation to choose this specific ground. The Western Roman Empire will not exist for another five thousand years.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">c. 4000–300 BCE</span>
+          <span class="card-dynasty">Jeulmun & Mumun Periods</span>
+          <div class="card-title">Korean Peninsula — The Cultural Bridge</div>
+          <div class="card-body">Korea sits between China and Japan geographically and culturally — the conduit through which continental ideas, technologies, and peoples will flow into Japan for the next two thousand years. Pottery traditions, bronze working, and eventually Buddhism all travel this route.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="empty"></div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">c. 300 BCE</span>
+          <div class="card-title">Yayoi Period — Continental Package Arrives</div>
+          <div class="card-body">Yayoi culture arrives from the Korean peninsula — wet rice agriculture, bronze and iron technology, and intensified trade networks. The plateau's position controlling river access to the interior and Osaka Bay becomes more strategically valuable than ever.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+  </div>
+
+  <!-- ==================== ANCIENT ==================== -->
+  <div class="era-group" data-era="ancient">
+
+    <div class="tri-row">
+      <div class="era-header" style="grid-column:1/-1"><div class="era-header-line"></div><span>Ancient — Han, Three Kingdoms & Asuka</span><div class="era-header-line"></div></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">206 BCE – 220 CE</span>
+          <span class="card-dynasty">Han Dynasty</span>
+          <div class="card-title">Han China — The First Superpower Template</div>
+          <div class="card-body">The Han dynasty establishes the model of centralised imperial bureaucracy, Confucian governance, and the Mandate of Heaven that Japan will eventually copy through the Taika Reform. Han ceramics — including the earliest funerary mingqi — are the foundation of what Umino Nobuyoshi will eventually collect and donate to Osaka's ceramics museum.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">c. 400s CE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">Sixteen Imperial Warehouses — Hoenzaka</div>
+          <div class="card-body">Sixteen government storehouses on the Hoenzaka slope, documented in the Nihon Shoki. Receiving goods from the Asian continent via Osaka Bay. The Western Roman Empire collapses in 476 CE while these warehouses are already operating. The trade infrastructure precedes the palace by a century.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">313 – 668 CE</span>
+          <span class="card-dynasty">Three Kingdoms Period</span>
+          <div class="card-title">Goguryeo, Baekje & Silla</div>
+          <div class="card-body">Three rival kingdoms compete for the peninsula. Each has its own relationship with China and Japan. Baekje has the closest relationship with Japan — it is from Baekje that Buddhism, Chinese writing, and the continental cultural package will formally arrive in Japan in 538/552 CE.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="influence-row" style="grid-column:1/-1">
+        <span class="influence-label">Buddhism Transmitted</span>
+        <span class="arrow">→</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Baekje (Korea) → Japan, 538/552 CE</span>
+        <span class="arrow">→</span>
+        <span class="influence-label">Arrives at Naniwa</span>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">581 – 618 CE</span>
+          <span class="card-dynasty">Sui Dynasty</span>
+          <div class="card-title">Sui Reunification — The Immediate Model</div>
+          <div class="card-body">The short-lived Sui dynasty reunifies China after centuries of division — the direct model for Emperor Kotoku's Taika Reform. The Sui's centralised bureaucratic state, with its census, tax system, and road network, is what Japan copies almost exactly in 645 CE. The Sui's costly wars with Korea contribute to its rapid collapse, making way for the Tang.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">593 CE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">Prince Shotoku Builds Shitennoji</div>
+          <div class="card-body">Japan's first Buddhist temple built in Naniwa — on the plateau. Buddhism deployed as a tool of imperial power, legitimising centralised government. The seed of a thousand years of Buddhist political accumulation is planted here, in the same ground that Nobunaga will finally clear in 1580.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">618 – 907 CE</span>
+          <span class="card-dynasty">★ Tang Dynasty</span>
+          <div class="card-title">Tang China — The Civilisational Template</div>
+          <div class="card-body">China's golden age. Chang'an — the Tang capital — is the largest, most cosmopolitan city in the world. The Tang model of centralised imperial bureaucracy, the Mandate of Heaven, equal-field agricultural system, civil service examinations, and Buddhist state religion becomes the direct template for Japan's Taika Reform. Japanese envoys — kentoshi — travel to Chang'an for decades, returning with 1,700 Chinese texts. Nara and then Kyoto are built as direct copies of Chang'an's grid layout.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">645 CE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">Taika Coup — Naniwa Palace & the Fujiwara</div>
+          <div class="card-body">Nakatomi no Kamatari and Prince Naka no Oe overthrow the Soga clan. Emperor Kotoku launches the Taika Reform — Japan's first Tang-style centralised state. Naniwa Palace built on the plateau. Kamatari granted the surname Fujiwara on his deathbed. The reform is explicitly modelled on Tang China — the same Tang China that is at its peak across the sea.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">668 – 935 CE</span>
+          <span class="card-dynasty">Unified Silla Dynasty</span>
+          <div class="card-title">Silla Unifies Korea — Tang Alliance</div>
+          <div class="card-body">Silla unifies the peninsula with Tang military support, then drives out Tang forces — a remarkable diplomatic manoeuvre. Silla becomes a Tang tributary state, absorbing Chinese culture, Buddhism, and administrative systems while maintaining independence. Korean monks travel to Tang China and return to Japan — Buddhism's journey is China → Korea → Japan, layered and transformed at each step.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="influence-row" style="grid-column:1/-1">
+        <span class="influence-label">Tang Model</span>
+        <span class="arrow">→</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Chang'an grid copied for Nara (710) and Kyoto (794)</span>
+        <span class="arrow">→</span>
+        <span class="influence-label">Mandate of Heaven → Japanese Emperor</span>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="empty"></div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">710 CE</span>
+          <div class="card-title">Capital to Nara — Buddhism Grows Powerful</div>
+          <div class="card-body">Capital established at Nara, modelled directly on Tang Chang'an. Emperor Shomu builds the Great Buddha at Todaiji and orders Buddhist temples in every province — funding the very institutional power that will eventually threaten the throne. Japanese monks travel to Tang China; Saichō returns in 804 with tea seeds — the first planting of what becomes Japan's tea culture.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+  </div>
+
+  <!-- ==================== HEIAN ==================== -->
+  <div class="era-group" data-era="heian">
+
+    <div class="tri-row">
+      <div class="era-header" style="grid-column:1/-1"><div class="era-header-line"></div><span>Heian Period — Tang Decline, Song Rise, Fujiwara Power</span><div class="era-header-line"></div></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">907 CE</span>
+          <span class="card-dynasty">Tang Falls</span>
+          <div class="card-title">Tang Dynasty Collapses</div>
+          <div class="card-body">The Tang collapses after the An Lushan rebellion and decades of regional fragmentation. Japan had already sent its last official embassy to Tang China in 894 — partly because the Tang was clearly failing. Japan's cultural borrowing from China essentially pauses. The influence already absorbed — Buddhism, writing, city planning, governance — is now being digested and transformed into something distinctly Japanese.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">794 CE</span>
+          <div class="card-title">Emperor Kanmu Moves to Kyoto</div>
+          <div class="card-body">Capital moved to Heian-kyo to escape Nara's Buddhist political power — the very power the imperial family created through land grants. Kyoto designed on the Tang Chang'an grid. Enryakuji founded on Mt. Hiei immediately. The problem follows the court. Buddhism arrives in Kyoto before the emperor has unpacked.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">918 – 1392 CE</span>
+          <span class="card-dynasty">★ Goryeo Dynasty</span>
+          <div class="card-title">Goryeo — The Celadon Masters</div>
+          <div class="card-body">The Goryeo dynasty produces what many consider the finest ceramics in East Asian history — Goryeo celadon, with its distinctive jade-green glaze (bisaek). These are the pieces that Ataka Eiichi will spend his life collecting 800 years later for what becomes the Museum of Oriental Ceramics. The 793-piece Ataka Collection, core of Osaka's museum, is primarily Goryeo and Joseon ceramics.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">960 – 1279 CE</span>
+          <span class="card-dynasty">★ Song Dynasty</span>
+          <div class="card-title">Song China — Zen, Tea & the Ceramics Golden Age</div>
+          <div class="card-body">China's most sophisticated cultural era. The Song produces the world's finest ceramics — Ru ware with its legendary sky-blue glaze, Longquan celadon, and the refined aesthetic that Japanese collectors will prize above all others. Powdered matcha tea culture flourishes in Song Zen temples. The Japanese monk Eisai will bring both Zen Buddhism and tea seeds back from Song China in 1191, transforming Japanese culture permanently.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">858 – 1086 CE</span>
+          <div class="card-title">Fujiwara Dominance — 400 Years</div>
+          <div class="card-body">Child marriages, engineered abdications, the Kampaku invented to control adult emperors. Ten emperors in under 100 years. Fujiwara no Michinaga — grandfather of three emperors — writes: "This world, I think, is indeed my world — like the full moon I shine, uncovered by any cloud." Lady Murasaki, a Fujiwara herself, writes the Tale of Genji from inside the gilded cage.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="influence-row" style="grid-column:1/-1">
+        <span class="influence-label">Song Zen + Tea</span>
+        <span class="arrow">→</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Eisai returns from Song China, 1191 CE — brings Zen Buddhism & matcha</span>
+        <span class="arrow">→</span>
+        <span class="influence-label">Japanese Tea Ceremony Born</span>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="empty"></div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">1086 CE</span>
+          <div class="card-title">Insei System — Emperor Outmanoeuvres Fujiwara</div>
+          <div class="card-body">Emperor Shirakawa abdicates but keeps governing as retired emperor — stepping outside the Fujiwara trap entirely. Political judo: the Fujiwara's own tool of abdication turned against them. But the solution creates new problems — multiple competing retired emperors, rival imperial factions inviting military clans into court politics to settle disputes.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+  </div>
+
+  <!-- ==================== MEDIEVAL ==================== -->
+  <div class="era-group" data-era="medieval">
+
+    <div class="tri-row">
+      <div class="era-header" style="grid-column:1/-1"><div class="era-header-line"></div><span>Medieval — Genpei War, Shogunates & the Tea Revolution</span><div class="era-header-line"></div></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">1191 CE</span>
+          <span class="card-dynasty">Song Dynasty</span>
+          <div class="card-title">Eisai Returns — Zen & Tea Arrive in Japan</div>
+          <div class="card-body">Japanese monk Eisai returns from Song China with Zen Buddhism (Rinzai school) and matcha tea seeds. Tea had died out in Japan after the last Tang embassy in 894. Now it returns transformed — no longer merely medicinal, but woven into Zen monastic practice. Caffeine helps monks stay awake during meditation. Tea and Zen become inseparable: Chazen Ichimi — "tea and Zen are one."</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">1180 – 1185 CE</span>
+          <div class="card-title">Genpei War — The Hinge Point</div>
+          <div class="card-body">The Minamoto and Taira clans — built on tax-exempt agricultural wealth the court created — fight for supremacy. Minamoto wins. The emperor becomes permanently ceremonial. Military government established in Kamakura. The template for Japanese governance for the next 700 years: emperor legitimises shogun, shogun protects emperor. Real power never returns to Kyoto until 1868.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">1231 – 1259 CE</span>
+          <span class="card-dynasty">Goryeo / Mongol Invasions</span>
+          <div class="card-title">Mongol Invasions of Korea</div>
+          <div class="card-body">The Mongols devastate Korea over nine invasions. Goryeo survives but as a vassal state. The Mongols will subsequently attempt to invade Japan twice — 1274 and 1281 — using Korean ships and Korean soldiers. Both fleets are destroyed by storms the Japanese call kamikaze — divine wind. Japan's first experience of existential external threat.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">1271 – 1368 CE</span>
+          <span class="card-dynasty">Yuan Dynasty (Mongol)</span>
+          <div class="card-title">Mongol China — Blue & White Porcelain Emerges</div>
+          <div class="card-body">The Mongol Yuan dynasty transforms Chinese ceramics — blue and white porcelain, using cobalt imported from Persia, emerges in this period. The aesthetic revolution in Chinese ceramics that will eventually reach Japan's tea ceremony culture and meibutsu collecting begins here. Chinese ceramics are now being made for export to Islamic markets — globalisation of luxury goods.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">1336 – 1573 CE</span>
+          <div class="card-title">Ashikaga Shogunate — Tea Ceremony Develops</div>
+          <div class="card-body">The Ashikaga shoguns rule from Kyoto. Their patronage creates the cultural framework for the tea ceremony, Noh theatre, and ink painting. Chinese Song ceramics — karamono — become the most prized objects in Japan. The meibutsu system develops: named objects accumulate political value through ownership history. The tea caddies that Ieyasu searches for in Osaka's ashes in 1615 acquire their significance in this era.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">1392 – 1897 CE</span>
+          <span class="card-dynasty">★ Joseon Dynasty</span>
+          <div class="card-title">Joseon Korea — White Porcelain & the Tea Bowl</div>
+          <div class="card-body">The Joseon dynasty produces the white porcelain and rough tea bowls that Japanese tea masters — following Zen wabi aesthetics — will prize above all others. The Korean moon jar becomes the most coveted object in Japanese collecting. Asakawa Noritaka discovers this beauty in 1913 and dedicates his life to preserving it. Hideyoshi's Korean invasions of 1592–1598 abduct Korean potters — the technology transfers to Japanese kilns by force.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="influence-row" style="grid-column:1/-1">
+        <span class="influence-label">Song & Goryeo Ceramics</span>
+        <span class="arrow">→</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Karamono (Chinese) & Koraimono (Korean) — most prized meibutsu objects in Japan</span>
+        <span class="arrow">→</span>
+        <span class="influence-label">Museum of Oriental Ceramics</span>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="empty"></div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">1496 CE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">Ishiyama Honganji — Buddhist Fortress on the Plateau</div>
+          <div class="card-body">Jodo Shinshu Buddhist sect establishes a fortress temple on the Uemachi Plateau — the same ground as Naniwa Palace. Over a century it becomes a self-governing religious city. Portuguese Jesuits describe it as the strongest castle in Japan. The 900-year arc of Buddhist political accumulation — from Shotoku's Shitennoji in 593 to this fortress — reaches its final form here.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+  </div>
+
+  <!-- ==================== SENGOKU ==================== -->
+  <div class="era-group" data-era="sengoku">
+
+    <div class="tri-row">
+      <div class="era-header" style="grid-column:1/-1"><div class="era-header-line"></div><span>Sengoku Period — The Three Unifiers & the Ceramics of Power</span><div class="era-header-line"></div></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">1368 – 1644 CE</span>
+          <span class="card-dynasty">Ming Dynasty</span>
+          <div class="card-title">Ming China — Blue & White at Its Peak</div>
+          <div class="card-body">Ming blue and white porcelain reaches its artistic apex — the pieces that Hideyoshi, Nobunaga, and Ieyasu compete to possess as meibutsu. The Jingdezhen kilns produce for the entire world. Portuguese Jesuits arrive in China and Japan simultaneously — Luis Frois describes Osaka Castle in 1586 with the same wondering eyes that his colleagues use for Ming court culture. Two civilisations at their peak encountering each other for the first time.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">1568 – 1580 CE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">Nobunaga Besieges Ishiyama Honganji</div>
+          <div class="card-body">Oda Nobunaga — Hideyoshi's boss — besieges the Buddhist fortress for eleven years. The same Buddhist institutional power that drove Emperor Kanmu from Nara in 794 CE, now fully militarised, resists Japan's most powerful warlord for a decade. Honganji surrenders 1580 and burns. Nine hundred years of Buddhist political accumulation cleared in a single fire.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">1592 – 1598 CE</span>
+          <span class="card-dynasty">Joseon Korea</span>
+          <div class="card-title">Hideyoshi Invades Korea — The Pottery Wars</div>
+          <div class="card-body">Hideyoshi launches two invasions of Korea — partly geopolitical, partly an obsession with Korean ceramic technology. Japanese forces abduct Korean potters and forcibly relocate them to Japan. These potters establish kilns that transform Japanese ceramic culture permanently. The tea bowls that Sen no Rikyu had championed — rough, Korean-made, wabi aesthetic — are now being produced in Japan by Korean hands. The Museum of Oriental Ceramics collections reflect exactly this moment of forced cultural transfer.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="empty"></div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">1583 CE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">Hideyoshi Builds Osaka Castle</div>
+          <div class="card-body">Toyotomi Hideyoshi builds on the ashes of Ishiyama Honganji — the same ground as Naniwa Palace, the same ground as the imperial warehouses. Luis Frois: the keep "rises above all like a tower of gold." Sen no Rikyu serves as Hideyoshi's tea master — the peasant warlord and the aesthetic philosopher navigating power together until Rikyu's forced suicide in 1591. The meibutsu system reaches its political peak.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="empty"></div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">4 June 1615 CE</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">The Fall of Osaka Castle — 7,000 Years Ends</div>
+          <div class="card-body">The Toyotomi clan ends. The castle burns. Tokugawa search teams enter the ruins looking not for survivors but for specific named ceramic jars — the Hatsuhana and Nitta tea caddies. Objects that travelled from Chinese kilns through the Ashikaga shogunate to Nobunaga to Hideyoshi to Ieyasu are recovered from the ashes. Power moves to Edo permanently. The Uemachi Plateau's 7,000 years as the most important place in Japan is over.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+  </div>
+
+  <!-- ==================== EDO ==================== -->
+  <div class="era-group" data-era="edo">
+
+    <div class="tri-row">
+      <div class="era-header" style="grid-column:1/-1"><div class="era-header-line"></div><span>Edo Period & Beyond — Legacy & Collection</span><div class="era-header-line"></div></div>
+    </div>
+
+    <div class="tri-row">
+      <div class="col-china">
+        <div class="event-card china-card" onclick="toggle(this)">
+          <span class="card-date">1644 – 1912 CE</span>
+          <span class="card-dynasty">Qing Dynasty</span>
+          <div class="card-title">Qing China — The Final Ceramics Chapter</div>
+          <div class="card-body">Qing porcelain — famille rose, famille verte, refined blue and white — represents the final flowering of Chinese ceramic tradition before industrialisation. The collectors who donate to Osaka's Museum of Oriental Ceramics — Ataka, Iriye, Hakutoro — collect across the full sweep from Han funerary ware to Qing imperial porcelain. The museum's collection is essentially the entire history of East Asian ceramics in one building.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">1615 – 1868 CE</span>
+          <div class="card-title">Edo Period — Osaka Becomes the Merchant Capital</div>
+          <div class="card-body">Politically sidelined, the plateau finds its final identity: commerce. Osaka becomes Japan's economic engine — the nation's kitchen, the centre of rice trading and merchant culture. The Tokugawa bury the Toyotomi keep under 7.3 metres of fill and build higher. The trade infrastructure that drew every previous power to this ground now sustains a city that no longer needs to be politically central.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="col-korea">
+        <div class="event-card korea-card" onclick="toggle(this)">
+          <span class="card-date">1910 – 1945 CE</span>
+          <span class="card-dynasty">Japanese Occupation</span>
+          <div class="card-title">Asakawa Brothers — Preserving Korean Heritage</div>
+          <div class="card-body">During Japanese occupation, brothers Noritaka and Takumi Asakawa — Japanese — devote their lives to documenting and preserving Korean ceramic culture that Japan's occupation is suppressing. Noritaka surveys 700 kiln sites. Takumi dies at 40, his final wish to be buried in Korean soil. Their work eventually reaches Osaka through the Suzuki Masao Collection in the Museum of Oriental Ceramics.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tri-row">
+      <div class="empty"></div>
+      <div class="col-spine-left spine-segment"></div>
+      <div class="col-japan">
+        <div class="event-card japan-card" onclick="toggle(this)">
+          <span class="card-date">Today</span>
+          <span class="tour-badge">On Tour</span>
+          <div class="card-title">You Are Standing on the Same Ground</div>
+          <div class="card-body">The ridge is still here. The rivers still flow either side. The bay is still to the south. Seven thousand years of people choosing this specific ground — for shelter, for trade, for power, for war, for god. The castle you see today is the newest thing here. The ceramics in the museum across the city carry the entire story of East Asia in their glazes. Everything beneath your feet is older than you can imagine.</div>
+          <span class="card-expand">Click to expand</span>
+        </div>
+      </div>
+      <div class="col-spine-right spine-segment"></div>
+      <div class="empty"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <em>Edward's Osaka Castle Walks — Historian-Interpreter</em><br>
+  <span style="font-size:0.72rem;letter-spacing:0.1em;display:block;margin-top:6px;">Click any card to expand · Filter by era · Tang Dynasty ★ and Song Dynasty ★ highlighted as primary continental influences</span>
+</div>
+
+<script>
+  function toggle(el) {
+    el.classList.toggle('expanded');
+  }
+
+  function filterEra(era, e) {
+    document.querySelectorAll('.era-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    document.querySelectorAll('.era-group').forEach(g => {
+      g.classList.toggle('hidden', era !== 'all' && g.dataset.era !== era);
+    });
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll('.event-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
