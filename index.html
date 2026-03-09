@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Uemachi Plateau — A Deep Time Timeline</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
   :root {
     --ink: #1a1410;
@@ -40,6 +41,44 @@
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
+  }
+
+  /* HERO IMAGE */
+  .hero {
+    width: 100%;
+    max-height: 480px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    filter: brightness(0.82);
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 40px 20px;
+    background: linear-gradient(transparent, rgba(26,20,16,0.85));
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero img { height: 260px; }
+    .hero-caption { font-size: 0.5rem; padding: 20px 16px 12px; }
   }
 
   /* HEADER */
@@ -251,7 +290,7 @@
     margin-right: 4px;
   }
 
-  .event-card.china-card:hover { background: rgba(139,42,42,0.06); }
+  .event-card.china-card:hover { background: rgba(184,134,11,0.06); }
 
   .event-card.korea-card {
     border-right: 3px solid var(--korea-blue);
@@ -419,7 +458,7 @@
     border-bottom: 2px solid currentColor;
   }
 
-  .dynasty-china { color: var(--china-red); background: rgba(139,42,42,0.06); }
+  .dynasty-china { color: var(--china-red); background: rgba(184,134,11,0.06); }
   .dynasty-japan { color: var(--japan-rust); background: rgba(139,58,42,0.06); }
   .dynasty-korea { color: var(--korea-blue); background: rgba(42,92,139,0.06); }
   .dynasty-spine { background: var(--line); }
@@ -440,27 +479,35 @@
   }
 
   @media (max-width: 768px) {
-    .tri-row, .col-headers, .dynasty-bar {
-      grid-template-columns: 1fr;
-    }
+    .tri-row, .col-headers, .dynasty-bar { grid-template-columns: 1fr; }
     .col-china { grid-column: 1; }
     .col-spine-left, .col-spine-right { display: none; }
     .col-japan { grid-column: 1; }
     .col-korea { grid-column: 1; }
-    .era-header { grid-column: 1; }
+    .era-header { grid-column: 1; overflow: hidden; min-width: 0; }
+    .era-header span { white-space: normal; font-size: 0.55rem; letter-spacing: 0.08em; text-align: center; padding: 5px 10px; max-width: 60vw; display: inline-block; }
     .event-card.china-card { text-align: left; border-left: 3px solid var(--china-red); }
-    .influence-row { flex-wrap: wrap; }
-    .card-title { word-wrap: break-word; overflow-wrap: break-word; white-space: normal; font-size: 0.85rem; }
+    .influence-row { flex-wrap: wrap; font-size: 0.72rem; padding: 6px 4px; }
+    .influence-label { font-size: 0.5rem; padding: 3px 8px; }
+    .card-title { word-wrap: break-word; overflow-wrap: break-word; white-space: normal; font-size: 0.88rem; }
+    .card-date { word-wrap: break-word; white-space: normal; }
     .event-card { padding: 10px 12px; margin: 4px; }
-    .col-header { font-size: 0.55rem; padding: 6px 4px; }
+    .col-header { font-size: 0.55rem; padding: 6px 4px; white-space: normal; word-wrap: break-word; }
     .era-btn { font-size: 0.55rem; padding: 4px 8px; }
     .timeline-wrapper { padding: 0 8px 60px; }
-    .influence-row { font-size: 0.72rem; padding: 6px 4px; }
-    .influence-label { font-size: 0.5rem; padding: 3px 8px; }
+    .header { padding: 30px 16px 20px; }
+    .header-subtitle { font-size: 0.55rem; letter-spacing: 0.15em; }
+    .card-dynasty { white-space: normal; word-wrap: break-word; }
+    .dynasty-label { white-space: normal; word-wrap: break-word; font-size: 0.5rem; }
   }
 </style>
 </head>
 <body>
+
+<div class="hero">
+  <img src="palace.png" alt="Naniwa Palace reconstruction — the Uemachi Plateau, 7th century CE">
+  <div class="hero-caption">Naniwa Palace — The Uemachi Plateau, 7th Century CE — Artist's Reconstruction</div>
+</div>
 
 <div class="header">
   <div class="header-subtitle">Edward's Osaka Castle Walks — Continental Cross-Reference Edition</div>
