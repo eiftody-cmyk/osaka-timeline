@@ -9,8 +9,8 @@
 <style>
   :root {
     --ink: #1a1410;
-    --parchment: #faf7f2;
-    --aged: #f0e8d5;
+    --parchment: #f5f0e8;
+    --aged: #e8dfc8;
     --rust: #8B3A2A;
     --gold: #C4962A;
     --moss: #3d6b47;
@@ -18,15 +18,13 @@
     --korea-blue: #2a5c8b;
     --china-red: #B8860B;
     --japan-rust: #8B3A2A;
-    --faded: #5a4e42;
+    --faded: #7a6e5f;
     --line: #c8b89a;
     --tang-gold: #b8860b;
     --song-blue: #4a7a9b;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { font-size: 18px; }
 
   body {
     background: var(--parchment);
@@ -71,7 +69,7 @@
     padding: 30px 40px 20px;
     background: linear-gradient(transparent, rgba(26,20,16,0.85));
     font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
+    font-size: 0.58rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: rgba(245,240,232,0.7);
@@ -80,7 +78,7 @@
 
   @media (max-width: 768px) {
     .hero img { height: 260px; }
-    .hero-caption { font-size: 0.68rem; padding: 20px 16px 12px; }
+    .hero-caption { font-size: 0.5rem; padding: 20px 16px 12px; }
   }
 
   /* HEADER */
@@ -93,7 +91,7 @@
 
   .header-subtitle {
     font-family: 'Cinzel', serif;
-    font-size: 0.88rem;
+    font-size: 0.65rem;
     letter-spacing: 0.35em;
     color: var(--gold);
     text-transform: uppercase;
@@ -112,7 +110,7 @@
   .header p {
     font-style: italic;
     color: var(--faded);
-    font-size: 1.35rem;
+    font-size: 1rem;
     margin-bottom: 30px;
   }
 
@@ -141,7 +139,7 @@
     align-items: center;
     gap: 8px;
     font-family: 'Cinzel', serif;
-    font-size: 0.84rem;
+    font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
@@ -171,7 +169,7 @@
 
   .era-btn {
     font-family: 'Cinzel', serif;
-    font-size: 0.81rem;
+    font-size: 0.6rem;
     letter-spacing: 0.12em;
     padding: 5px 12px;
     border: 1px solid var(--line);
@@ -229,7 +227,7 @@
 
   .era-header span {
     font-family: 'Cinzel', serif;
-    font-size: 0.84rem;
+    font-size: 0.62rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--parchment);
@@ -254,7 +252,7 @@
   .col-header {
     text-align: center;
     font-family: 'Cinzel', serif;
-    font-size: 0.88rem;
+    font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     padding: 8px;
@@ -321,7 +319,7 @@
 
   .card-date {
     font-family: 'Cinzel', serif;
-    font-size: 0.84rem;
+    font-size: 0.62rem;
     letter-spacing: 0.12em;
     margin-bottom: 4px;
     display: block;
@@ -334,7 +332,7 @@
 
   .card-dynasty {
     font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
+    font-size: 0.58rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     opacity: 0.6;
@@ -343,7 +341,7 @@
   }
 
   .card-title {
-    font-size: 1.24rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: var(--ink);
     line-height: 1.3;
@@ -351,7 +349,7 @@
   }
 
   .card-body {
-    font-size: 1.08rem;
+    font-size: 0.8rem;
     color: var(--faded);
     line-height: 1.65;
     font-style: italic;
@@ -362,13 +360,13 @@
   }
 
   .event-card.expanded .card-body {
-    max-height: 300px;
+    max-height: 1000px;
     opacity: 1;
   }
 
   .card-expand {
     font-family: 'Cinzel', serif;
-    font-size: 0.74rem;
+    font-size: 0.55rem;
     letter-spacing: 0.1em;
     color: var(--line);
     text-transform: uppercase;
@@ -388,11 +386,11 @@
     gap: 10px;
     font-style: italic;
     color: var(--gold);
-    font-size: 1.11rem;
+    font-size: 0.82rem;
   }
 
   .arrow {
-    font-size: 1.62rem;
+    font-size: 1.2rem;
     color: var(--gold);
   }
 
@@ -401,7 +399,7 @@
     border: 1px solid rgba(196,150,42,0.3);
     padding: 4px 14px;
     font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
+    font-size: 0.58rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
@@ -411,7 +409,7 @@
   .tour-badge {
     display: inline-block;
     font-family: 'Cinzel', serif;
-    font-size: 0.68rem;
+    font-size: 0.5rem;
     letter-spacing: 0.1em;
     color: var(--parchment);
     background: var(--rust);
@@ -427,7 +425,7 @@
     padding: 10px 60px;
     font-style: italic;
     color: var(--faded);
-    font-size: 1.11rem;
+    font-size: 0.82rem;
     border-top: 1px dashed var(--line);
     border-bottom: 1px dashed var(--line);
     background: rgba(200,184,154,0.12);
@@ -453,7 +451,7 @@
   .dynasty-label {
     text-align: center;
     font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
+    font-size: 0.58rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 4px 8px;
@@ -474,7 +472,7 @@
     padding: 40px;
     font-style: italic;
     color: var(--faded);
-    font-size: 1.11rem;
+    font-size: 0.82rem;
     border-top: 1px solid var(--line);
     position: relative;
     z-index: 1;
@@ -487,20 +485,20 @@
     .col-japan { grid-column: 1; }
     .col-korea { grid-column: 1; }
     .era-header { grid-column: 1; overflow: hidden; min-width: 0; }
-    .era-header span { white-space: normal; font-size: 0.74rem; letter-spacing: 0.08em; text-align: center; padding: 5px 10px; max-width: 60vw; display: inline-block; }
+    .era-header span { white-space: normal; font-size: 0.55rem; letter-spacing: 0.08em; text-align: center; padding: 5px 10px; max-width: 60vw; display: inline-block; }
     .event-card.china-card { text-align: left; border-left: 3px solid var(--china-red); }
-    .influence-row { flex-wrap: wrap; font-size: 0.97rem; padding: 6px 4px; }
-    .influence-label { font-size: 0.68rem; padding: 3px 8px; }
-    .card-title { word-wrap: break-word; overflow-wrap: break-word; white-space: normal; font-size: 1.19rem; }
+    .influence-row { flex-wrap: wrap; font-size: 0.72rem; padding: 6px 4px; }
+    .influence-label { font-size: 0.5rem; padding: 3px 8px; }
+    .card-title { word-wrap: break-word; overflow-wrap: break-word; white-space: normal; font-size: 0.88rem; }
     .card-date { word-wrap: break-word; white-space: normal; }
     .event-card { padding: 10px 12px; margin: 4px; }
-    .col-header { font-size: 0.74rem; padding: 6px 4px; white-space: normal; word-wrap: break-word; }
-    .era-btn { font-size: 0.74rem; padding: 4px 8px; }
+    .col-header { font-size: 0.55rem; padding: 6px 4px; white-space: normal; word-wrap: break-word; }
+    .era-btn { font-size: 0.55rem; padding: 4px 8px; }
     .timeline-wrapper { padding: 0 8px 60px; }
     .header { padding: 30px 16px 20px; }
-    .header-subtitle { font-size: 0.74rem; letter-spacing: 0.15em; }
+    .header-subtitle { font-size: 0.55rem; letter-spacing: 0.15em; }
     .card-dynasty { white-space: normal; word-wrap: break-word; }
-    .dynasty-label { white-space: normal; word-wrap: break-word; font-size: 0.68rem; }
+    .dynasty-label { white-space: normal; word-wrap: break-word; font-size: 0.5rem; }
   }
 </style>
 </head>
@@ -644,7 +642,7 @@
       <div class="influence-row" style="grid-column:1/-1">
         <span class="influence-label">Buddhism Transmitted</span>
         <span class="arrow">→</span>
-        <span style="font-size: 1.08rem;color:var(--faded)">Baekje (Korea) → Japan, 538/552 CE</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Baekje (Korea) → Japan, 538/552 CE</span>
         <span class="arrow">→</span>
         <span class="influence-label">Arrives at Naniwa</span>
       </div>
@@ -710,7 +708,7 @@
       <div class="influence-row" style="grid-column:1/-1">
         <span class="influence-label">Tang Model</span>
         <span class="arrow">→</span>
-        <span style="font-size: 1.08rem;color:var(--faded)">Chang'an grid copied for Nara (710) and Kyoto (794)</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Chang'an grid copied for Nara (710) and Kyoto (794)</span>
         <span class="arrow">→</span>
         <span class="influence-label">Mandate of Heaven → Japanese Emperor</span>
       </div>
@@ -798,7 +796,7 @@
       <div class="influence-row" style="grid-column:1/-1">
         <span class="influence-label">Song Zen + Tea</span>
         <span class="arrow">→</span>
-        <span style="font-size: 1.08rem;color:var(--faded)">Eisai returns from Song China, 1191 CE — brings Zen Buddhism & matcha</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Eisai returns from Song China, 1191 CE — brings Zen Buddhism & matcha</span>
         <span class="arrow">→</span>
         <span class="influence-label">Japanese Tea Ceremony Born</span>
       </div>
@@ -894,7 +892,7 @@
       <div class="influence-row" style="grid-column:1/-1">
         <span class="influence-label">Song & Goryeo Ceramics</span>
         <span class="arrow">→</span>
-        <span style="font-size: 1.08rem;color:var(--faded)">Karamono (Chinese) & Koraimono (Korean) — most prized meibutsu objects in Japan</span>
+        <span style="font-size:0.8rem;color:var(--faded)">Karamono (Chinese) & Koraimono (Korean) — most prized meibutsu objects in Japan</span>
         <span class="arrow">→</span>
         <span class="influence-label">Museum of Oriental Ceramics</span>
       </div>
@@ -1051,7 +1049,7 @@
 
 <div class="footer">
   <em>Edward's Osaka Castle Walks — Historian-Interpreter</em><br>
-  <span style="font-size: 0.97rem;letter-spacing:0.1em;display:block;margin-top:6px;">Click any card to expand · Filter by era · Tang Dynasty ★ and Song Dynasty ★ highlighted as primary continental influences</span>
+  <span style="font-size:0.72rem;letter-spacing:0.1em;display:block;margin-top:6px;">Click any card to expand · Filter by era · Tang Dynasty ★ and Song Dynasty ★ highlighted as primary continental influences</span>
 </div>
 
 <script>
