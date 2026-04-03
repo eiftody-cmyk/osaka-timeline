@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Three Unifiers · Edward's Osaka Castle Walks</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --parchment: #f5f0e8;
@@ -36,7 +38,6 @@
     position: relative;
   }
 
-  /* Subtle texture overlay */
   .page::before {
     content: '';
     position: fixed;
@@ -54,7 +55,6 @@
   }
 
   .eyebrow {
-    font-family: 'EB Garamond', serif;
     font-size: 0.72rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -145,7 +145,6 @@
     font-weight: 700;
     color: var(--ink);
     margin-bottom: 0.35rem;
-    letter-spacing: 0.01em;
   }
 
   .portrait-name .underline-accent {
@@ -190,7 +189,6 @@
     opacity: 0.4;
   }
 
-  /* Mobile */
   @media (max-width: 600px) {
     .portraits {
       grid-template-columns: 1fr;
@@ -205,6 +203,7 @@
   }
 </style>
 </head>
+
 <body>
 <div class="page">
 
@@ -218,42 +217,40 @@
 
     <div class="portrait">
       <div class="portrait-frame">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Oda_Nobunaga-Portrait.jpg/800px-Oda_Nobunaga-Portrait.jpg"
-             alt="Portrait of Oda Nobunaga"
-             onerror="this.style.background='#e8e0d0';this.style.minHeight='260px'">
+        <img src="nobunaga.png" alt="Portrait of Oda Nobunaga">
       </div>
       <p class="portrait-name"><span class="underline-accent">Oda Nobunaga</span></p>
-      <p class="portrait-role">The warlord who <em>cleared the ground.</em> Spent eleven years trying to destroy the fortress that stood here before.</p>
-    <div class="portraits">
-
-  <div class="portrait">
-    <div class="portrait-frame">
-      <img src="nobunaga.png"
-           alt="Portrait of Oda Nobunaga">
+      <p class="portrait-role">
+        The warlord who <em>cleared the ground.</em>
+        Spent eleven years trying to destroy the fortress that stood here before.
+      </p>
     </div>
-    <p class="portrait-name"><span class="underline-accent">Oda Nobunaga</span></p>
-    <p class="portrait-role">The warlord who <em>cleared the ground.</em> Spent eleven years trying to destroy the fortress that stood here before.</p>
-  </div>
 
-  <div class="portrait">
-    <div class="portrait-frame">
-      <img src="hideyoshi.png"
-           alt="Portrait of Toyotomi Hideyoshi">
+    <div class="portrait">
+      <div class="portrait-frame">
+        <img src="hideyoshi.png" alt="Portrait of Toyotomi Hideyoshi">
+      </div>
+      <p class="portrait-name"><span class="underline-accent">Toyotomi Hideyoshi</span></p>
+      <p class="portrait-role">
+        The peasant who <em>built it.</em>
+        Rose from nothing to become the most powerful man in Japan.
+        Osaka Castle was his statement to the world.
+      </p>
     </div>
-    <p class="portrait-name"><span class="underline-accent">Toyotomi Hideyoshi</span></p>
-    <p class="portrait-role">The peasant who <em>built it.</em> Rose from nothing to become the most powerful man in Japan. Osaka Castle was his statement to the world.</p>
-  </div>
 
-  <div class="portrait">
-    <div class="portrait-frame">
-      <img src="ieyasu.png"
-           alt="Portrait of Tokugawa Ieyasu">
+    <div class="portrait">
+      <div class="portrait-frame">
+        <img src="ieyasu.png" alt="Portrait of Tokugawa Ieyasu">
+      </div>
+      <p class="portrait-name"><span class="underline-accent">Tokugawa Ieyasu</span></p>
+      <p class="portrait-role">
+        The survivor who <em>buried it.</em>
+        Waited thirty years, then destroyed everything Hideyoshi built —
+        deliberately and permanently.
+      </p>
     </div>
-    <p class="portrait-name"><span class="underline-accent">Tokugawa Ieyasu</span></p>
-    <p class="portrait-role">The survivor who <em>buried it.</em> Waited thirty years, then destroyed everything Hideyoshi built — deliberately and permanently.</p>
-  </div>
 
-</div>
+  </div>
 
   <div class="footer-rule"></div>
   <p class="footer-text">Historian-Interpreter <span>·</span> Osaka Castle</p>
@@ -261,3 +258,4 @@
 </div>
 </body>
 </html>
+
