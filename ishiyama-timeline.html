@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ishiyama Honganji War Timeline (1570–1580)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1410;
+    --parchment: #faf7f2;
+    --aged: #f0e8d5;
+    --rust: #8B3A2A;
+    --gold: #C4962A;
+    --moss: #3d6b47;
+    --slate: #3A4A5C;
+    --korea-blue: #2a5c8b;
+    --china-red: #B8860B;
+    --japan-rust: #8B3A2A;
+    --faded: #4a3e32;
+    --line: #c8b89a;
+    --tang-gold: #b8860b;
+    --song-blue: #4a7a9b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 19px; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* HERO IMAGE */
+  .hero {
+    width: 100%;
+    max-height: 480px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    filter: brightness(0.82);
+  }
+
+  @media (max-width: 768px) {
+    .hero img { height: 260px; }
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 60px 40px 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.91rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .header p {
+    font-style: italic;
+    color: var(--faded);
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+  }
+
+  .header::after {
+    content: '';
+    display: block;
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto;
+  }
+
+  /* TIMELINE */
+  .timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-item {
+    border-left: 3px solid var(--line);
+    padding-left: 20px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: absolute;
+    left: -8px;
+    top: 5px;
+  }
+
+  .year {
+    font-size: 1.4rem;
+    color: var(--rust);
+    margin-bottom: 6px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--ink);
+    font-family: 'Cinzel', serif;
+  }
+
+  .text {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+</style>
+</head>
+
+<body>
+
+<!-- HERO IMAGE (empty for now) -->
+<div class="hero">
+  <img src="" alt="">
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-subtitle">Osaka Castle Walks with Edward</div>
+  <h1>Ishiyama Honganji War Timeline (1570–1580)</h1>
+  <p></p>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-container">
+
+  <div class="timeline-item">
+    <div class="year">1570</div>
+    <div class="title">The Opening Clash</div>
+    <div class="text">
+      Kennyo issues a manifesto declaring Nobunaga an enemy of Buddhism and launches a sudden attack on Oda forces at Settsu Fukushima.
+      The Honganji army fights Oda troops along the Yodo River but retreats back into the fortress.
+      Nobunaga, already fighting the Asai, Asakura, and Miyoshi, accepts an Imperial Court–brokered truce.
+      The first rising lasts less than a month.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="year">1571–1575</div>
+    <div class="title">The Long Middle Phase</div>
+    <div class="text">
+      This period becomes a shifting, grinding conflict rather than a static siege.
+      Kennyo secretly forms alliances with Takeda Shingen and the Mori clan to pressure Nobunaga from east and west.
+      Ikko-ikki uprisings erupt across Nagashima, Echizen, and Kaga, forcing Nobunaga to fight a broad religious network rather than a single fortress.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="year">1576</div>
+    <div class="title">The Battle of Tennoji</div>
+    <div class="text">
+      Oda forces under Akechi Mitsuhide, Hosokawa Fujitaka, Nakagawa Kiyohide, Takayama Ukon, Araki Murashige, and Sakuma Nobuhide attack the fortress but are repelled by 15,000 Ikko-ikki defenders.
+      Nobunaga rushes from Kyoto and, with only 3,000 men, strikes the Honganji army near Tennoji Temple.
+      He pushes them back to their gates but is shot in the leg by arquebus fire.
+      Harada Naomasa is killed in the fighting.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="year">1576–1578</div>
+    <div class="title">The Naval War</div>
+    <div class="text">
+      Ishiyama Honganji’s island fortress depends on sea routes.
+      In 1576, the Mori navy breaks Nobunaga’s blockade at the First Battle of Kizugawaguchi.
+      Nobunaga responds by commissioning iron-armored atakebune warships.
+      In 1578, these vessels crush the Honganji fleet in the Second Battle of Kizugawaguchi, permanently cutting the sea route.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="year">1578–1580</div>
+    <div class="title">The Final Phase</div>
+    <div class="text">
+      With the sea route closed, the Ikki begin to starve.
+      Shimozuma Nakayuki leads repeated sallies from the fortress, but ammunition and food run out.
+      By April 1580, the defenders are exhausted and isolated — yet the fortress still has not fallen by force.
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="year">1580</div>
+    <div class="title">The Surrender and Scorched Earth</div>
+    <div class="text">
+      Nobunaga negotiates the surrender of Ishiyama Honganji through the Imperial Court, giving Kennyo Kosa an honorable exit.
+      Once evacuated, Nobunaga burns the entire complex to the ground.
+      The fortress is never conquered — it is abandoned, then destroyed.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
